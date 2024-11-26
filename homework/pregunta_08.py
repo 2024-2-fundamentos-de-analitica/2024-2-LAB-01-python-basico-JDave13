@@ -27,7 +27,7 @@ def pregunta_08():
      (9, ['A', 'B', 'C', 'E'])]
 
     """
-    with open("C:/Users/juana/OneDrive/Documentos/Github/UNAL_2024_2/Fundamentos de Analitica/2024-2-LAB-01-python-basico-JDave13/files/input/data.csv", "r") as file:
+    with open("../files/input/data.csv", "r") as file:
         data = [line.strip().split('\t') for line in file]
     letter_groups = {}
     for row in data:
@@ -35,7 +35,7 @@ def pregunta_08():
         if col2_value not in letter_groups:
             letter_groups[col2_value] = set()
         letter_groups[col2_value].add(row[0])
-        
+
     result = sorted([(key, sorted(list(letter_groups[key]))) for key in letter_groups])
     
     return result

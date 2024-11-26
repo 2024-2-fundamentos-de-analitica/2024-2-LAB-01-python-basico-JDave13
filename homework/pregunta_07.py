@@ -25,7 +25,7 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
-    with open("C:/Users/juana/OneDrive/Documentos/Github/UNAL_2024_2/Fundamentos de Analitica/2024-2-LAB-01-python-basico-JDave13/files/input/data.csv", "r") as file:
+    with open("../files/input/data.csv", "r") as file:
         data = [line.strip().split('\t') for line in file]
     letter_groups = {}
     for row in data:
