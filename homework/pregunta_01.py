@@ -14,7 +14,7 @@ def pregunta_01():
     214
     """
     suma = 0
-    with open("../files/input/data.csv", "r") as file:
+    with open("files/input/data.csv", "r") as file:
         for line in file:
             columns = line.strip().split("\t")
             if len(columns) > 1:
