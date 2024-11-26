@@ -42,5 +42,3 @@ def pregunta_04():
     resultado = sorted(sum_months.items())
 
     return resultado
-
-print(pregunta_04())
