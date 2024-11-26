@@ -26,3 +26,21 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    sum_months = {}
+
+    with open("C:/Users/juana/OneDrive/Documentos/Github/UNAL_2024_2/Fundamentos de Analitica/2024-2-LAB-01-python-basico-JDave13/files/input/data.csv", "r") as file:
+        for line in file:
+            columns = line.strip().split("\t")
+            if len(columns) > 2:
+                fecha = columns[2]
+                mes = fecha.split("-")[1]
+                if mes in sum_months:
+                    sum_months[mes] += 1
+                else:
+                    sum_months[mes] = 1
+
+    resultado = sorted(sum_months.items())
+
+    return resultado
+
+print(pregunta_04())

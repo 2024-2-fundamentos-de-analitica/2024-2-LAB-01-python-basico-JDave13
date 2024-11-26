@@ -16,3 +16,17 @@ def pregunta_11():
 
 
     """
+    with open("C:/Users/juana/OneDrive/Documentos/Github/UNAL_2024_2/Fundamentos de Analitica/2024-2-LAB-01-python-basico-JDave13/files/input/data.csv", "r") as file:
+        data = [line.strip().split('\t') for line in file]
+
+    letter_sums = {}
+    
+    for row in data:
+        letters = row[3].split(',')
+        col2_value = int(row[1])
+        for letter in letters:
+            if letter not in letter_sums:
+                letter_sums[letter] = 0
+            letter_sums[letter] += col2_value
+    
+    return dict(sorted(letter_sums.items()))

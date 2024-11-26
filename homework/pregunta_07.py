@@ -25,3 +25,15 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
+    with open("C:/Users/juana/OneDrive/Documentos/Github/UNAL_2024_2/Fundamentos de Analitica/2024-2-LAB-01-python-basico-JDave13/files/input/data.csv", "r") as file:
+        data = [line.strip().split('\t') for line in file]
+    letter_groups = {}
+    for row in data:
+        col2_value = int(row[1])
+        if col2_value not in letter_groups:
+            letter_groups[col2_value] = []
+        letter_groups[col2_value].append(row[0])
+    
+    result = sorted([(key, letter_groups[key]) for key in letter_groups])
+    
+    return result

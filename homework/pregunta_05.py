@@ -15,3 +15,18 @@ def pregunta_05():
     [('A', 9, 2), ('B', 9, 1), ('C', 9, 0), ('D', 8, 3), ('E', 9, 1)]
 
     """
+    max_min_letra = {}
+    with open("C:/Users/juana/OneDrive/Documentos/Github/UNAL_2024_2/Fundamentos de Analitica/2024-2-LAB-01-python-basico-JDave13/files/input/data.csv", "r") as file:
+        for line in file:
+            columns = line.strip().split("\t")
+            if len(columns) > 1:
+                letra = columns[0]
+                valor = int(columns[1])
+                if letra in max_min_letra:
+                    max_min_letra[letra] = (max(max_min_letra[letra][0], valor), min(max_min_letra[letra][1], valor))
+                else:
+                    max_min_letra[letra] = (valor, valor)
+
+    resultado = [(letra, valor[0], valor[1]) for letra, valor in sorted(max_min_letra.items())]
+
+    return resultado

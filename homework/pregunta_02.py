@@ -9,9 +9,21 @@ utilizar pandas, numpy o scipy.
 def pregunta_02():
     """
     Retorne la cantidad de registros por cada letra de la primera columna como
-    la lista de tuplas (letra, cantidad), ordendas alfabéticamente.
+    la lista de tuplas (letra, cantidad), ordenadas alfabéticamente.
 
     Rta/
     [('A', 8), ('B', 7), ('C', 5), ('D', 6), ('E', 14)]
-
     """
+    conteo = {}
+    with open("C:/Users/juana/OneDrive/Documentos/Github/UNAL_2024_2/Fundamentos de Analitica/2024-2-LAB-01-python-basico-JDave13/files/input/data.csv", "r") as file:
+        for line in file:
+            columns = line.strip().split("\t")
+            if len(columns) > 0:
+                letra = columns[0]
+                if letra in conteo:
+                    conteo[letra] += 1
+                else:
+                    conteo[letra] = 1
+    resultado = sorted(conteo.items())
+
+    return resultado

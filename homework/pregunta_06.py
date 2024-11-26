@@ -26,3 +26,20 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
+    min_max_clave = {}
+    with open("C:/Users/juana/OneDrive/Documentos/Github/UNAL_2024_2/Fundamentos de Analitica/2024-2-LAB-01-python-basico-JDave13/files/input/data.csv", "r") as file:
+        for line in file:
+            columns = line.strip().split("\t")
+            if len(columns) > 4:
+                claves_valores = columns[4].split(",")
+                for item in claves_valores:
+                    clave, valor = item.split(":")
+                    valor = int(valor)
+                    if clave in min_max_clave:
+                        min_max_clave[clave] = (min(min_max_clave[clave][0], valor), max(min_max_clave[clave][1], valor))
+                    else:
+                        min_max_clave[clave] = (valor, valor)
+
+    resultado = [(clave, valor[0], valor[1]) for clave, valor in sorted(min_max_clave.items())]
+
+    return resultado
